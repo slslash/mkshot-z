@@ -1,5 +1,5 @@
 # mkshot-z
-_Derivated from [ModShot-mkxp-z](https://github.com/thehatkid/ModShot-mkxp-z)._
+_Derived from [ModShot-mkxp-z](https://github.com/thehatkid/ModShot-mkxp-z)._
 
 __mkshot-z__ is an advanced game engine for modding [OneShot (2016)](https://store.steampowered.com/app/420530/OneShot/).  
 
