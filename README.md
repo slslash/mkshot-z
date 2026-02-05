@@ -1,22 +1,12 @@
-# ModShot
+# mkshot-z
+_Derivated from [ModShot-mkxp-z](https://github.com/thehatkid/ModShot-mkxp-z)._
 
-**ModShot** is Advanced [OneShot (2016)](https://store.steampowered.com/app/420530/OneShot/) Game Engine
-intended for modding scene, based on [mkxp-z](https://github.com/mkxp-z/mkxp-z) and replacement (successor) of
-[mkxp-oneshot](https://github.com/elizagamedev/mkxp-oneshot).
+__mkshot-z__ is an advanced game engine for modding [OneShot (2016)](https://store.steampowered.com/app/420530/OneShot/).  
 
-ModShot supports Windows, Linux and macOS platforms and brings some Quality of Life (QoL) features.
 
------
+## License
+mkshot-z is free and open source software licensed under GPLv2-or-later.  
+See [COPYING](COPYING) for more details.
 
-*(This Readme is currently WIP and requires additions here...)*
-
------
-
-# Contributing
-
-Contributions are very welcome.
-
-# License
-
-ModShot is licensed under GNU General Public License version 2 (GPLv2), see [COPYING](COPYING) file.
-ModShot is free and open source software.
+## Special thanks
+- thehatkid, the creator of ModShot-mkxp-z
