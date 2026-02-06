@@ -78,7 +78,7 @@ if is_debug
 endif
 
 mkxpz_cflags += [
-    '-DMKXPZ_ALCDEVICE=ALCdevice' # OpenAL
+    '-DMKXPZ_ALCDEVICE=ALCdevice', # OpenAL
     '-DMKXPZ_BUILD_MESON',
     '-DMKXPZ_VERSION="@0@"'.format(meson.project_version()),
     '-DMKXPZ_INIT_GL_LATER'
