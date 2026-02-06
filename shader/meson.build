@@ -1,4 +1,4 @@
-mkxp_shaders = files(
+mkxpz_shaders = files(
     'common.h',
     'minimal.vert',
     'flatColor.frag',
@@ -31,10 +31,10 @@ mkxp_shaders = files(
 
 # xBRZ shader is licensed under GPLv3, so checking for enabled OpenSSL support
 # as it's also requires to be GPLv3 compatable
-if mkxp_gplv3 == true
-    mkxp_shaders += files('xbrz.frag')
+if mkxpz_gplv3 == true
+    mkxpz_shaders += files('xbrz.frag')
 endif
 
-mkxp_shaders_xxd = xxd_gen.process(mkxp_shaders)
+mkxpz_shaders_xxd = xxd_gen.process(mkxpz_shaders)
 
-mkxp_sources += mkxp_shaders_xxd
+mkxpz_sources += mkxpz_shaders_xxd

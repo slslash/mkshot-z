@@ -1,0 +1,120 @@
+option(
+    'static',
+    type: 'boolean',
+    value: true,
+    description: 'Link the executable statically.'
+)
+
+option(
+    'force_32bit',
+    type: 'boolean',
+    value: false,
+    description: 'Force the compiler to build in 32-bit mode.'
+)
+
+option(
+    'workdir_current',
+    type: 'boolean',
+    value: false,
+    description: 'Keep Current Working Directory on startup.'
+)
+
+option(
+    'gles',
+    type: 'boolean'
+    value: false,
+    description: '\'OpenGL ES\' GL backend.'
+)
+
+option(
+    'require_nanosleep',
+    type: 'feature',
+    description: 'Nanosleep for ticking framerate (disabled on Windows builds by default).'
+)
+
+option(
+    'appimagetool',
+    type: 'string',
+    value: '',
+    description: 'Path to AppImageTool binary, providing will pack an AppImage on install.'
+)
+
+# ModShot modules options
+option(
+    'cjk_font',
+    type: 'boolean',
+    value: false,
+    description: 'Use WenQuanYi Micro Hei as the fallback font.'
+)
+
+option(
+    'fluidsynth',
+    type: 'boolean',
+    value: false,
+    description: 'FluidSynth (MIDI support).'
+)
+
+option(
+    'miniffi',
+    type: 'boolean',
+    value: false,
+    description: 'MiniFFI Ruby bindings (Win32API).'
+)
+
+option(
+    'https',
+    type: 'boolean',
+    value: false,
+    description: 'HTTPLite Ruby bindings (HTTPS support, Requires OpenSSL).'
+)
+
+option(
+    'cxx11_experimental',
+    type: 'boolean',
+    value: false,
+    description: 'Use C++11 <experimental/filesystem> instead of <ghc/filesystem>.'
+)
+
+# Steamworks and Steamshim options
+option(
+    'steamworks_path',
+    type: 'string',
+    value: '',
+    description: 'Path to Steamworks SDK, providing will enable Steam features and bindings.'
+)
+
+option(
+    'steam_appid',
+    type: 'string',
+    value: '',
+    description: 'Steam AppID value, set this to use SteamAPI_RestartAppIfNecessary.'
+)
+
+option(
+    'steamshim_debug',
+    type: 'boolean',
+    value: false,
+    description: 'Show the Steamshim debug output console.'
+)
+
+# Ruby library overrides
+option(
+    'mri_includes',
+    type: 'string',
+    value: '',
+    description: '(Manual) Include path to the Ruby headers.'
+)
+
+option(
+    'mri_libname',
+    type: 'string',
+    value: '',
+    description: '(Manual) Ruby library name.'
+)
+
+option(
+    'mri_libpath',
+    type: 'string',
+    value: '',
+    description: '(Manual) Library path to the Ruby library.'
+)

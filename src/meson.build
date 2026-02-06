@@ -1,57 +1,46 @@
 # Get project dependencies
-dep_zlib = dependency('zlib', static: is_static)
-dep_physfs = dependency('physfs', version: '>=2.1', static: is_static)
-dep_iconv = cc.find_library('iconv', dirs: [mkxp_deps_prefix / 'lib'], static: true)
-dep_uchardet = dependency('uchardet', static: is_static)
+dep_zlib = dependency('zlib', static: opt_static)
+dep_physfs = dependency('physfs', version: '>=2.1', static: opt_static)
+dep_iconv = cc.find_library('iconv', dirs: [mkxpz_deps_prefix / 'lib'], static: true)
+dep_uchardet = dependency('uchardet', static: opt_static)
+dep_ogg = dependency('ogg', static: opt_static)
+dep_vorbis = dependency('vorbis', static: opt_static)
+dep_vorbisfile = dependency('vorbisfile', static: opt_static)
+dep_theora = dependency('theora', static: opt_static)
+dep_png = dependency('libpng', static: opt_static)
+dep_jpeg = dependency('libjpeg', static: opt_static)
+dep_pixman = dependency('pixman-1', static: opt_static)
+dep_openal = dependency('openal', method: 'pkg-config', static: opt_static)
+dep_sdl3 = dependency('SDL3', static: opt_static)
+dep_sdl3_image = dependency('SDL3_image', static: opt_static)
+dep_sdl3_ttf = dependency('SDL3_ttf', static: opt_static)
+dep_sdl3_sound = dependency('SDL3_sound', static: opt_static)
 
-dep_ogg = dependency('ogg', static: is_static)
-dep_vorbis = dependency('vorbis', static: is_static)
-dep_vorbisfile = dependency('vorbisfile', static: is_static)
-dep_theora = dependency('theora', static: is_static)
-
-dep_png = dependency('libpng', static: is_static)
-dep_jpeg = dependency('libjpeg', static: is_static)
-dep_pixman = dependency('pixman-1', static: is_static)
-
-dep_openal = dependency('openal', method: 'pkg-config', static: is_static)
-
-dep_sdl2 = dependency('SDL2', static: is_static)
-dep_sdl2_image = dependency('SDL2_image', static: is_static)
-dep_sdl2_ttf = dependency('SDL2_ttf', static: is_static)
-dep_sdl2_sound = dependency('SDL2_sound', static: is_static)
-
-mkxp_dependencies += [
+mkxpz_dependencies += [
     dep_zlib, dep_physfs, dep_iconv, dep_uchardet,
     dep_ogg, dep_vorbis, dep_vorbisfile, dep_theora,
     dep_png, dep_jpeg, dep_pixman, dep_openal,
-    dep_sdl2, dep_sdl2_image, dep_sdl2_ttf, dep_sdl2_sound
+    dep_sdl3, dep_sdl3_image, dep_sdl3_ttf, dep_sdl3_sound
 ]
 
-# Define OpenAL ALCdevice structure name
-alcdevice_struct = 'ALCdevice_struct'
-if dep_openal.version().version_compare('>=1.20.0')
-    alcdevice_struct = 'ALCdevice'
-endif
-mkxp_cflags += '-DMKXPZ_ALCDEVICE=@0@'.format(alcdevice_struct)
-
 # Include FluidSynth when option is true
-if get_option('fluidsynth') == true
-    dep_fluidsynth = dependency('fluidsynth', static: is_static)
-    mkxp_dependencies += dep_fluidsynth
-    mkxp_cflags += '-DSHARED_FLUID'
+if opt_fluidsynth
+    dep_fluidsynth = dependency('fluidsynth', static: opt_static)
+    mkxpz_dependencies += dep_fluidsynth
+    mkxpz_cflags += '-DSHARED_FLUID'
 
     # FluidSynth also wants DirectSound library on Windows
     if host_system == 'windows'
-        mkxp_dependencies += cc.find_library('dsound', required: true)
+        mkxpz_dependencies += cc.find_library('dsound', required: true)
     endif
 endif
 
 # Include OpenSSL when option is true
 if get_option('https') == true
-    dep_openssl = dependency('openssl', required: false, static: is_static)
+    dep_openssl = dependency('openssl', required: false, static: opt_static)
     if dep_openssl.found()
-        mkxp_dependencies += dep_openssl
-        mkxp_cflags += '-DMKXPZ_SSL'
+        mkxpz_dependencies += dep_openssl
+        mkxpz_cflags += '-DMKXPZ_SSL'
     else
         warning('Could not locate OpenSSL library; HTTPS support remains disabled')
     endif
@@ -59,10 +48,10 @@ endif
 
 # Win32 API: Required for GetUserNameEx
 if host_system == 'windows'
-    mkxp_dependencies += cc.find_library('Secur32', required: true)
+    mkxpz_dependencies += cc.find_library('Secur32', required: true)
 endif
 
-mkxp_includes += include_directories(
+mkxpz_includes += include_directories(
     '.',
     'audio',
     'crypto',
@@ -82,7 +71,7 @@ mkxp_includes += include_directories(
     'util/sigslot/adapter'
 )
 
-mkxp_sources += files(
+mkxpz_sources += files(
     'main.cpp',
     'config.cpp',
     'eventthread.cpp',
@@ -151,18 +140,13 @@ mkxp_sources += files(
     'util/win-consoleutils.cpp'
 )
 
-if mkxp_steam
-    mkxp_includes += include_directories(
-        'steam'
-    )
-
-    mkxp_sources += files(
-        'steam/steam.cpp'
-    )
+if mkxpz_steam
+    mkxpz_includes += include_directories('steam')
+    mkxpz_sources += files('steam/steam.cpp')
 endif
 
 if host_system == 'linux'
-    mkxp_sources += files(
+    mkxpz_sources += files(
         'util/xdg-user-dirs.cpp',
         'oneshot/gnome-fun.cpp',
         'oneshot/xfconf-fun.cpp'
