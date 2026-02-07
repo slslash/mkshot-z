@@ -1,7 +1,4 @@
 # Build directories and files
-/build*/
-/install*/
-/prefix*/
 *.o
 *.obj
 *.res
@@ -15,6 +12,31 @@
 *.dmg
 *.lock.json
 
+# Xmake
+*.suo
+*~
+*.swo
+*.idb
+*.ilk
+*.stackdump
+*.manifest
+.ccache
+.svn
+.xmake
+*.deb
+*.zip
+*.gch
+*.gch.d
+.xmake
+cscope.*
+gmon.out
+tags
+doc
+install.log
+build
+docs/.vitepress/dist
+docs/.vitepress/cache
+
 # General files
 .gdbinit
 .gdb_history
@@ -27,11 +49,7 @@
 *.rej
 *.lnk
 
-# Platform-dependent dependencies
-/windows/downloads/
-/windows/build-*/
-/linux/downloads/
-/linux/build-*/
+# macOS libraries artifacts
 /macos/dependencies/downloads/
 /macos/dependencies/build-*/
 /macos/dependencies/Frameworks/Steamworks/*
