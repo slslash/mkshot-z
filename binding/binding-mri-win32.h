@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef BINDING_MRI_WIN32_H
 #define BINDING_MRI_WIN32_H
 

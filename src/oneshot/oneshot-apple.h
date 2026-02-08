@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef ONESHOT_APPLE_H
 #define ONESHOT_APPLE_H
 

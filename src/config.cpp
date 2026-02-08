@@ -1,9 +1,8 @@
-//
-//  config.cpp
-//  Player
-//
-//  Created by ゾロアーク on 11/21/20.
-//
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** Player
+** Created by ゾロアーク on 11/21/20.
+*/
 
 #include "config.h"
 #include <SDL_filesystem.h>
@@ -68,7 +67,7 @@ bool copyObject(json::value &dest, json::value &src, const char *objectName = ""
         // Specifically processs this object later.
         if (it.second.is_object() && destVec[it.first].is_object())
             continue;
-        
+       
         if ((it.second.is_array() && destVec[it.first].is_array())    ||
             (it.second.is_number() && destVec[it.first].is_number())  ||
             (it.second.is_string() && destVec[it.first].is_string())  ||

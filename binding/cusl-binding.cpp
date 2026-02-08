@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifdef MKXPZ_STEAM
 #include "binding-util.h"
 #include "steamshim_child.h"

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "journal.h"
 #include "eventthread.h"
 #include "sharedstate.h"

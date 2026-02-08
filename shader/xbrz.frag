@@ -1,30 +1,34 @@
-// From https://github.com/bsnes-emu/bsnes/tree/c0c60c83a84a49d4a2b822a0491cb258a3c5b98a/shaders/xBRZ.shader
-// Copyright bsnes contributors.
-// mkxp-z modifications Copyright 2022-2023 Splendide Imaginarius.
-// GPLv3+ license.
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** From https://github.com/bsnes-emu/bsnes/tree/c0c60c83a84a49d4a2b822a0491cb258a3c5b98a/shaders/xBRZ.shader
+** Copyright bsnes contributors.
+** mkxp-z modifications Copyright 2022-2023 Splendide Imaginarius.
+*/
 
 // xBRZ freescale
 // based on :
 
-// 4xBRZ shader - Copyright (C) 2014-2016 DeSmuME team
-//
-// This file is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 2 of the License, or
-// (at your option) any later version.
-//
-// This file is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with the this software.  If not, see <http://www.gnu.org/licenses/>.
+/*
+  4xBRZ shader - Copyright (C) 2014-2016 DeSmuME team
+
+  This file is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This file is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with the this software.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 
 /*
    Hyllian's xBR-vertex code and texel mapping
-   
+
    Copyright (C) 2011/2016 Hyllian - sergiogdb@gmail.com
 
    Permission is hereby granted, free of charge, to any person obtaining a copy

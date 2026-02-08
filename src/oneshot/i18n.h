@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef ONESHOT_I18N
 #define ONESHOT_I18N
 

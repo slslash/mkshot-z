@@ -1,9 +1,8 @@
-//
-//  json5pp.hpp
-//  Player
-//
-//  Created by ゾロアーク on 11/21/20.
-//
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** Player
+** Created by ゾロアーク on 11/21/20.
+*/
 
 // https://github.com/kimushu/json5pp
 

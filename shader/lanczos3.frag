@@ -1,7 +1,7 @@
+// SPDX-License-Identifier: MIT
 // From https://raw.githubusercontent.com/Sentmoraap/doing-sdl-right/93a52a0db0ff2da5066cce12f5b9a2ac62e6f401/assets/lanczos3.frag
 // Copyright 2020 Lilian Gimenez (Sentmoraap).
 // mkxp-z modifications Copyright 2022-2023 Splendide Imaginarius.
-// MIT license.
 
 #ifdef GLSLES
 	precision highp float;

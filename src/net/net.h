@@ -1,9 +1,8 @@
-//
-//  net.h
-//  mkxp-z
-//
-//  Created by ゾロアーク on 12/29/20.
-//
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+**  mkxp-z
+**  Created by ゾロアーク on 12/29/20.
+*/
 
 #ifndef net_h
 #define net_h

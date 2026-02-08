@@ -1,9 +1,8 @@
-//
-//  encoding.h
-//  mkxp-z
-//
-//  Created by ゾロアーク on 6/22/21.
-//
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** mkxp-z
+** Created by ゾロアーク on 6/22/21.
+*/
 
 #ifndef encoding_h
 #define encoding_h

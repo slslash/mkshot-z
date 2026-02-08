@@ -1,28 +1,14 @@
-/*
-** tilequad.h
+/* SPDX-License-Identifier: GPL-3.0-or-later AND Zlib
 **
-** This file is part of mkxp. It is based on parts of "SFML 2.0" (license further below)
-**
+** This file is part of mkxp. It is based on parts of "SFML 2.0".
 ** Copyright (C) 2013 - 2021 Amaryllis Kulla <ancurio@mapleshrine.eu>
-**
-** mkxp is free software: you can redistribute it and/or modify
-** it under the terms of the GNU General Public License as published by
-** the Free Software Foundation, either version 2 of the License, or
-** (at your option) any later version.
-**
-** mkxp is distributed in the hope that it will be useful,
-** but WITHOUT ANY WARRANTY; without even the implied warranty of
-** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-** GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License
-** along with mkxp.  If not, see <http://www.gnu.org/licenses/>.
+** Copyright (C) 2007 - 2012 Laurent Gomila <laurent.gom@gmail.com>
 */
 
 ////////////////////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
-// Copyright (C) 2007-2012 Laurent Gomila (laurent.gom@gmail.com)
+// 
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.

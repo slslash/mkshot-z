@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef XFCONF_FUN_H
 #define XFCONF_FUN_H
 

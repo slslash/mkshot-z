@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef GNOME_FUN_H
 #define GNOME_FUN_H
 

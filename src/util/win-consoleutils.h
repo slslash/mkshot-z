@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef WIN_CONSOLEUTIL_H
 #define WIN_CONSOLEUTIL_H
 

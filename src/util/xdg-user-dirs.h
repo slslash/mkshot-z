@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef XDG_USER_DIRS_H
 #define XDG_USER_DIRS_H
 

@@ -10,8 +10,8 @@ This project is WIP and isn't yet intended for general use, sorry.<br>
 I'm not actively looking for contributions, but they're more than welcome!
 
 ## License
-mkshot-z is free and open source software licensed under GPLv2-or-later.<br>
-See [COPYING](COPYING) for more details.
+mkshot-z is free and open source software licensed under GPLv3-or-later.<br>
+See [LICENSE](LICENSE) for more details.
 
 ## Special thanks
 - [hat_kid](https://github.com/thehatkid) for creating ModShot-mkxp-z

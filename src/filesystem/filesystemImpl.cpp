@@ -1,9 +1,8 @@
-//
-//  filesystemImpl.cpp
-//  Player
-//
-//  Created by ゾロアーク on 11/21/20.
-//
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** Player
+** Created by ゾロアーク on 11/21/20.
+*/
 
 #include <SDL_filesystem.h>
 

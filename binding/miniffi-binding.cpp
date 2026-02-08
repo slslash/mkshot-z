@@ -1,5 +1,8 @@
-// Most of the MiniFFI class was taken from Ruby 1.8's Win32API.c,
-// it's just as basic but should work fine for the moment
+/* SPDX-License-Identifier: GPL-3.0-or-later
+**
+** Most of the MiniFFI class was taken from Ruby 1.8's Win32API.c,
+** it's just as basic but should work fine for the moment
+*/
 
 #include <SDL.h>
 #include <cstdint>

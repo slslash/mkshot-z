@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #ifndef ONESHOT_JOURNAL_H
 #define ONESHOT_JOURNAL_H
 
