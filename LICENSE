@@ -1,19 +1,37 @@
-mkxp-z is Copyright (C) 2013 - 2023 the mkxp-z contributors, including
+mkxp-z
+Copyright (C) 2013 - 2023 the mkxp-z contributors, including
 Amaryllis Kulla <ancurio@mapleshrine.eu>, Struma, Splendide Imaginarius,
-and others. The full list of contributors can be found by cloning the
+and others.  The full list of contributors can be found by cloning the
 mkxp-z Git repository (see below).
 
-mkxp-z is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+ModShot-mkxp-z
+Copyright (C) 2024 hat_kid <https://github.com/thehatkid>
 
-mkxp-z is distributed in the hope that it will be useful,
+mkshot-z
+Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+
+mkshot-z is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+mkshot-z is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 The mkxp-z source code is available at:
 <https://github.com/mkxp-z/mkxp-z>
+
+The ModShot-mkxp-z source code is available at:
+<https://github.com/thehatkid/ModShot-mkxp-z>
+
+The mkshot-z source code is available at:
+<https://codeberg.org/slslash/mkshot-z>
+
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
