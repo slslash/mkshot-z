@@ -1,5 +1,5 @@
 # mkshot-z
-<h3 align=center>Documentation is available <a href=https://github.com/slslash/mkshot-z/wiki>here</a>.</h3>
+<p align=center>Documentation is available <a href=https://github.com/slslash/mkshot-z/wiki>here</a>.</p>
 
 **mkshot-z** *(derived from ModShot-mkxp-z)* is an extended engine reimplementation for **OneShot (2016)**. It supports multiple platforms *(Windows, Linux, macOS, \*BSD)* and has been made with modders in mind, bringing several QoL features.
 
