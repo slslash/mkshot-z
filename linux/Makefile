@@ -633,7 +633,7 @@ $(DLDIR)/sdl2_ttf/$(BDIR)/Makefile: $(DLDIR)/sdl2_ttf/CMakeLists.txt
 	@cd $(DLDIR)/sdl2_ttf; $(CMAKE) $(OPTS_SDL_TTF)
 
 $(DLDIR)/sdl2_ttf/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_ttf 2.24.0...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_ttf 2.22.0...\e[0m\n"
 	@$(GIT) -b release-2.22.0 https://github.com/libsdl-org/SDL_ttf $(DLDIR)/sdl2_ttf
 
 # --------------------------------- SDL2_sound ---------------------------------
