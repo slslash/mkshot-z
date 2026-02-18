@@ -41,9 +41,6 @@
 
 # Visual Studio Code
 .vscode/*
-!.vscode/launch.json
-!.vscode/settings.json
-!.vscode/tasks.json
 .history/
 *.code-workspace
 
