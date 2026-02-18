@@ -13,7 +13,6 @@ NPROC ?= $(shell nproc)
 # (Default: 0 (False))
 LTO ?= 0
 
-
 # ==============================================================================
 
 
@@ -271,7 +270,6 @@ OPTS_OPENAL := \
 	-DALSOFT_EXAMPLES=OFF \
 	-DALSOFT_EMBED_HRTF_DATA=ON
 
-# FluidSynth has some issues to link against mkxp-z
 OPTS_FLUIDSYNTH := \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DLIB_SUFFIX="" \
@@ -280,8 +278,9 @@ OPTS_FLUIDSYNTH := \
 	-Denable-portaudio=OFF \
 	-Denable-pulseaudio=OFF \
 	-Denable-dbus=OFF \
-	-Denable-sdl2=OFF \
-	-Denable-readline=OFF
+	-Denable-sdl3=ON \
+	-Denable-readline=OFF \
+	-Dosal=cpp11
 
 OPTS_LIBYAML := \
 	-DCMAKE_POSITION_INDEPENDENT_CODE=ON \
@@ -323,8 +322,8 @@ $(DLDIR)/libogg/$(BDIR)/Makefile: $(DLDIR)/libogg/CMakeLists.txt
 	@cd $(DLDIR)/libogg; $(CMAKE) $(OPTS_LIBOGG)
 
 $(DLDIR)/libogg/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading libogg 1.3.5...\e[0m\n"
-	@$(GIT) -b v1.3.5 https://github.com/xiph/ogg $(DLDIR)/libogg
+	@printf "\e[94m=>\e[0m \e[36mDownloading libogg 1.3.6...\e[0m\n"
+	@$(GIT) -b v1.3.6 https://github.com/xiph/ogg $(DLDIR)/libogg
 
 # ----------------------------------- Vorbis -----------------------------------
 libvorbis: init libogg $(LIBDIR)/libvorbis.a
@@ -366,8 +365,8 @@ $(DLDIR)/$(DLARCH)/libtheora/configure: $(DLDIR)/$(DLARCH)/libtheora/autogen.sh
 	@cd $(DLDIR)/$(DLARCH)/libtheora; autoreconf -fiv -I m4
 
 $(DLDIR)/$(DLARCH)/libtheora/autogen.sh:
-	@printf "\e[94m=>\e[0m \e[36mDownloading libtheora 1.2.0alpha1+git...\e[0m\n"
-	@$(GIT) -b master https://github.com/xiph/theora $(DLDIR)/$(DLARCH)/libtheora
+	@printf "\e[94m=>\e[0m \e[36mDownloading libtheora 1.2.0...\e[0m\n"
+	@$(GIT) -b v1.2.0 https://github.com/xiph/theora $(DLDIR)/$(DLARCH)/libtheora
 
 
 # =============================== Misc libraries ===============================
@@ -389,8 +388,8 @@ $(DLDIR)/zlib-ng/$(BDIR)/Makefile: $(DLDIR)/zlib-ng/CMakeLists.txt
 	@cd $(DLDIR)/zlib-ng; $(CMAKE) $(OPTS_ZLIB)
 
 $(DLDIR)/zlib-ng/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading zlib-ng 2.1.6...\e[0m\n"
-	@$(GIT) -b 2.1.6 https://github.com/zlib-ng/zlib-ng $(DLDIR)/zlib-ng
+	@printf "\e[94m=>\e[0m \e[36mDownloading zlib-ng 2.3.3...\e[0m\n"
+	@$(GIT) -b 2.3.3 https://github.com/zlib-ng/zlib-ng $(DLDIR)/zlib-ng
 
 # ----------------------------------- PhysFS -----------------------------------
 physfs: init $(LIBDIR)/libphysfs.a
@@ -427,15 +426,15 @@ $(DLDIR)/$(DLARCH)/libiconv/Makefile: $(DLDIR)/$(DLARCH)/libiconv/configure.ac
 	@printf "\e[94m=>\e[0m \e[36mConfiguring libiconv...\e[0m\n"
 	@cd $(DLDIR)/$(DLARCH)/libiconv; $(CONFIGURE) $(OPTS_LIBICONV)
 
-$(DLDIR)/$(DLARCH)/libiconv/configure.ac: $(DLDIR)/libiconv-1.17.tar.gz
+$(DLDIR)/$(DLARCH)/libiconv/configure.ac: $(DLDIR)/libiconv-1.18.tar.gz
 	@printf "\e[94m=>\e[0m \e[36mUnpacking GNU iconv...\e[0m\n"
-	@tar -xzf $(DLDIR)/libiconv-1.17.tar.gz -C $(DLDIR)/$(DLARCH)/
-	@mv $(DLDIR)/$(DLARCH)/libiconv-1.17 $(DLDIR)/$(DLARCH)/libiconv
+	@tar -xzf $(DLDIR)/libiconv-1.18.tar.gz -C $(DLDIR)/$(DLARCH)/
+	@mv $(DLDIR)/$(DLARCH)/libiconv-1.18 $(DLDIR)/$(DLARCH)/libiconv
 	@touch $(DLDIR)/$(DLARCH)/libiconv/configure.ac
 
-$(DLDIR)/libiconv-1.17.tar.gz:
-	@printf "\e[94m=>\e[0m \e[36mDownloading GNU iconv 1.17...\e[0m\n"
-	@wget -q https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.17.tar.gz -P $(DLDIR)/
+$(DLDIR)/libiconv-1.18.tar.gz:
+	@printf "\e[94m=>\e[0m \e[36mDownloading GNU iconv 1.18...\e[0m\n"
+	@wget -q https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.18.tar.gz -P $(DLDIR)/
 
 # ---------------------------------- uchardet ----------------------------------
 uchardet: init $(LIBDIR)/libuchardet.a
@@ -477,8 +476,8 @@ $(DLDIR)/libpng/$(BDIR)/Makefile: $(DLDIR)/libpng/CMakeLists.txt
 	@cd $(DLDIR)/libpng; $(CMAKE) $(OPTS_LIBPNG)
 
 $(DLDIR)/libpng/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading libpng 1.6.43...\e[0m\n"
-	@$(GIT) -b v1.6.43 https://github.com/pnggroup/libpng $(DLDIR)/libpng
+	@printf "\e[94m=>\e[0m \e[36mDownloading libpng 1.6.55...\e[0m\n"
+	@$(GIT) -b v1.6.55 https://github.com/pnggroup/libpng $(DLDIR)/libpng
 
 # ----------------------------------- libjpeg ----------------------------------
 libjpeg: init $(LIBDIR)/libjpeg.a
@@ -497,8 +496,8 @@ $(DLDIR)/libjpeg/$(BDIR)/Makefile: $(DLDIR)/libjpeg/CMakeLists.txt
 	@cd $(DLDIR)/libjpeg; $(CMAKE) $(OPTS_LIBJPEG)
 
 $(DLDIR)/libjpeg/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading libjpeg-turbo 3.0.2...\e[0m\n"
-	@$(GIT) -b 3.0.2 https://github.com/libjpeg-turbo/libjpeg-turbo $(DLDIR)/libjpeg
+	@printf "\e[94m=>\e[0m \e[36mDownloading libjpeg-turbo 3.1.3...\e[0m\n"
+	@$(GIT) -b 3.1.3 https://github.com/libjpeg-turbo/libjpeg-turbo $(DLDIR)/libjpeg
 
 # ----------------------------------- Pixman -----------------------------------
 pixman: init libpng $(LIBDIR)/libpixman-1.a
@@ -539,8 +538,8 @@ $(DLDIR)/harfbuzz/$(BDIR)/Makefile: $(DLDIR)/harfbuzz/CMakeLists.txt
 	@cd $(DLDIR)/harfbuzz; $(CMAKE) -DHB_BUILD_SUBSET=NO
 
 $(DLDIR)/harfbuzz/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading HarfBuzz 8.4.0...\e[0m\n"
-	@$(GIT) -b 8.4.0 https://github.com/harfbuzz/harfbuzz $(DLDIR)/harfbuzz
+	@printf "\e[94m=>\e[0m \e[36mDownloading HarfBuzz 12.3.2...\e[0m\n"
+	@$(GIT) -b 12.3.2 https://github.com/harfbuzz/harfbuzz $(DLDIR)/harfbuzz
 
 # ---------------------------------- FreeType ----------------------------------
 freetype: init zlib libpng harfbuzz $(LIBDIR)/libfreetype.a
@@ -559,8 +558,8 @@ $(DLDIR)/freetype/$(BDIR)/Makefile: $(DLDIR)/freetype/CMakeLists.txt
 	@cd $(DLDIR)/freetype; $(CMAKE) $(OPTS_FREETYPE)
 
 $(DLDIR)/freetype/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading FreeType 2.13.2...\e[0m\n"
-	@$(GIT) -b VER-2-13-2 https://gitlab.freedesktop.org/freetype/freetype.git $(DLDIR)/freetype
+	@printf "\e[94m=>\e[0m \e[36mDownloading FreeType 2.14.1...\e[0m\n"
+	@$(GIT) -b VER-2-14-1 https://gitlab.freedesktop.org/freetype/freetype.git $(DLDIR)/freetype
 
 # ------------------------- HarfBuzz + FreeType interop ------------------------
 
@@ -594,8 +593,8 @@ $(DLDIR)/sdl2/$(BDIR)/Makefile: $(DLDIR)/sdl2/CMakeLists.txt
 	@cd $(DLDIR)/sdl2; $(CMAKE) $(OPTS_SDL)
 
 $(DLDIR)/sdl2/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2 2.30.3...\e[0m\n"
-	@$(GIT) -b release-2.30.3 https://github.com/libsdl-org/SDL $(DLDIR)/sdl2
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2 2.32.10...\e[0m\n"
+	@$(GIT) -b release-2.32.10 https://github.com/libsdl-org/SDL $(DLDIR)/sdl2
 
 # --------------------------------- SDL2_image ---------------------------------
 sdl2_image: init sdl2 libpng libjpeg $(LIBDIR)/libSDL2_image.a
@@ -614,8 +613,8 @@ $(DLDIR)/sdl2_image/$(BDIR)/Makefile: $(DLDIR)/sdl2_image/CMakeLists.txt
 	@cd $(DLDIR)/sdl2_image; $(CMAKE) $(OPTS_SDL_IMAGE)
 
 $(DLDIR)/sdl2_image/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_image 2.8.2...\e[0m\n"
-	@$(GIT) -b release-2.8.2 https://github.com/libsdl-org/SDL_image $(DLDIR)/sdl2_image
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_image 2.8.8...\e[0m\n"
+	@$(GIT) -b release-2.8.8 https://github.com/libsdl-org/SDL_image $(DLDIR)/sdl2_image
 
 # ---------------------------------- SDL2_ttf ----------------------------------
 sdl2_ttf: init sdl2 freetype harfbuzz $(LIBDIR)/libSDL2_ttf.a
@@ -634,7 +633,7 @@ $(DLDIR)/sdl2_ttf/$(BDIR)/Makefile: $(DLDIR)/sdl2_ttf/CMakeLists.txt
 	@cd $(DLDIR)/sdl2_ttf; $(CMAKE) $(OPTS_SDL_TTF)
 
 $(DLDIR)/sdl2_ttf/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_ttf 2.22.0...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_ttf 2.24.0...\e[0m\n"
 	@$(GIT) -b release-2.22.0 https://github.com/libsdl-org/SDL_ttf $(DLDIR)/sdl2_ttf
 
 # --------------------------------- SDL2_sound ---------------------------------
@@ -654,8 +653,8 @@ $(DLDIR)/sdl2_sound/$(BDIR)/Makefile: $(DLDIR)/sdl2_sound/CMakeLists.txt
 	@cd $(DLDIR)/sdl2_sound; $(CMAKE) $(OPTS_SDL_SOUND)
 
 $(DLDIR)/sdl2_sound/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_sound 2.0.2...\e[0m\n"
-	@$(GIT) -b v2.0.2 https://github.com/icculus/SDL_sound $(DLDIR)/sdl2_sound
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_sound...\e[0m\n"
+	@$(GIT) -b stable-2.0 https://github.com/icculus/SDL_sound $(DLDIR)/sdl2_sound
 
 
 # =============================== Audio backends ===============================
@@ -677,10 +676,10 @@ $(DLDIR)/openal/$(BDIR)/Makefile: $(DLDIR)/openal/CMakeLists.txt
 	@cd $(DLDIR)/openal; $(CMAKE) $(OPTS_OPENAL)
 
 $(DLDIR)/openal/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading OpenAL 1.23.1...\e[0m\n"
-	@$(GIT) -b 1.23.1 https://github.com/kcat/openal-soft $(DLDIR)/openal
+	@printf "\e[94m=>\e[0m \e[36mDownloading OpenAL 1.25.1...\e[0m\n"
+	@$(GIT) -b 1.25.1 https://github.com/kcat/openal-soft $(DLDIR)/openal
 
-# ---------------------------- FluidSynth (no glib) ----------------------------
+# --------------------------------- FluidSynth ---------------------------------
 fluidsynth: init $(LIBDIR)/libfluidsynth.a
 
 $(LIBDIR)/libfluidsynth.a: $(DLDIR)/fluidsynth/$(BDIR)/src/libfluidsynth.a
@@ -697,9 +696,8 @@ $(DLDIR)/fluidsynth/$(BDIR)/Makefile: $(DLDIR)/fluidsynth/CMakeLists.txt
 	@cd $(DLDIR)/fluidsynth; $(CMAKE) $(OPTS_FLUIDSYNTH)
 
 $(DLDIR)/fluidsynth/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading FluidSynth 2.1.5 (no glib)...\e[0m\n"
-	@$(GIT) https://github.com/mkxp-z/fluidsynth-sans-glib $(DLDIR)/fluidsynth
-
+	@printf "\e[94m=>\e[0m \e[36mDownloading FluidSynth 2.5.2...\e[0m\n"
+	@$(GIT) -b v2.5.2 https://github.com/FluidSynth/fluidsynth $(DLDIR)/fluidsynth
 
 # ============================== Ruby 3.1 and etc. =============================
 
@@ -743,8 +741,8 @@ $(DLDIR)/$(DLARCH)/libffi/configure: $(DLDIR)/$(DLARCH)/libffi/configure.ac
 	@cd $(DLDIR)/$(DLARCH)/libffi; autoreconf -fi
 
 $(DLDIR)/$(DLARCH)/libffi/configure.ac:
-	@printf "\e[94m=>\e[0m \e[36mDownloading libffi 3.4.6...\e[0m\n"
-	@$(GIT) -b v3.4.6 https://github.com/libffi/libffi $(DLDIR)/$(DLARCH)/libffi
+	@printf "\e[94m=>\e[0m \e[36mDownloading libffi 3.5.2...\e[0m\n"
+	@$(GIT) -b v3.5.2 https://github.com/libffi/libffi $(DLDIR)/$(DLARCH)/libffi
 
 # --------------------------------- OpenSSL 3.0 --------------------------------
 openssl: init $(LIBDIR)/libssl.a
