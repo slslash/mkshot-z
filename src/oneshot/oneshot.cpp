@@ -18,7 +18,7 @@
 #include "gnome-fun.h"
 #endif
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #ifdef _WIN32
 static std::string wideToUTF8(const wchar_t *wcStr)

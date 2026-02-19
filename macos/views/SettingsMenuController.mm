@@ -1,9 +1,16 @@
-//
-//  SettingsMenuController.m
-//  mkxp-z
-//
-//  Created by ゾロアーク on 1/15/21.
-//
+/*
+** SettingsMenuController.m
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+**
+** Created by ゾロアーク on 1/15/21.
+*/
 
 // This is a pretty rudimentary keybinding menu, and it replaces the normal one
 // for macOS. The normal one basically just doesn't seem to work with ANGLE,
@@ -14,9 +21,9 @@
 
 #import <Availability.h>
 #import <GameController/GameController.h>
-#import <SDL_scancode.h>
-#import <SDL_keyboard.h>
-#import <SDL_video.h>
+#import <SDL3/SDL_scancode.h>
+#import <SDL3/SDL_keyboard.h>
+#import <SDL3/SDL_video.h>
 
 #import "sdl_codes.h"
 #import "SettingsMenuController.h"

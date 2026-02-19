@@ -58,10 +58,10 @@ extern "C" {
 #include <string>
 #include <zlib.h>
 
-#include <SDL_cpuinfo.h>
-#include <SDL_filesystem.h>
-#include <SDL_loadso.h>
-#include <SDL_power.h>
+#include <SDL3/SDL_cpuinfo.h>
+#include <SDL3/SDL_filesystem.h>
+#include <SDL3/SDL_loadso.h>
+#include <SDL3/SDL_power.h>
 
 extern const char module_rpg1[];
 extern const char module_rpg2[];

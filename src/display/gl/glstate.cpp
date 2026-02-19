@@ -27,7 +27,7 @@
 #include "shader.h"
 #include "sharedstate.h"
 
-#include <SDL_rect.h>
+#include <SDL3/SDL_rect.h>
 
 static void applyBool(GLenum state, bool mode) {
   mode ? gl.Enable(state) : gl.Disable(state);

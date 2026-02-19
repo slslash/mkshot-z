@@ -1,8 +1,20 @@
+/*
+** fluid-fun.cpp
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+*/
+
 #include "fluid-fun.h"
 
 #include <string.h>
-#include <SDL_loadso.h>
-#include <SDL_platform.h>
+#include <SDL3/SDL_loadso.h>
+#include <SDL3/SDL_platform.h>
 
 #include "debugwriter.h"
 

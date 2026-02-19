@@ -1,15 +1,23 @@
-//
-//  TouchBar.mm
-//  mkxp-z
-//
-//  Created by ゾロア on 1/14/22.
-//
+/*
+**  TouchBar.mm
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+**
+**  Created by ゾロア on 1/14/22.
+*/
 
 #import <AppKit/AppKit.h>
-#import <SDL_syswm.h>
-#import <SDL_events.h>
-#import <SDL_timer.h>
-#import <SDL_scancode.h>
+// TODO: SDL_syswm.h has been removed from SDL3.
+// #import <SDL_syswm.h>
+#import <SDL3/SDL_events.h>
+#import <SDL3/SDL_timer.h>
+#import <SDL3/SDL_scancode.h>
 
 #import "TouchBar.h"
 #import "config.h"

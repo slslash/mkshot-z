@@ -1,7 +1,19 @@
+/*
+** miniffi-binding.cpp
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+*/
+
 // Most of the MiniFFI class was taken from Ruby 1.8's Win32API.c,
 // it's just as basic but should work fine for the moment
 
-#include <SDL.h>
+#include <SDL3SDL.h>
 #include <cstdint>
 
 #include "filesystem/filesystem.h"

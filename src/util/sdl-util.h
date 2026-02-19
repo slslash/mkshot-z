@@ -1,9 +1,21 @@
+/*
+** sdl-util.h
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+*/
+
 #ifndef SDLUTIL_H
 #define SDLUTIL_H
 
-#include <SDL_atomic.h>
-#include <SDL_thread.h>
-#include <SDL_rwops.h>
+#include <SDL3/SDL_atomic.h>
+#include <SDL3/SDL_thread.h>
+#include <SDL3/SDL_iostream.h>
 
 #include <string>
 #include <iostream>

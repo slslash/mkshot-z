@@ -1,3 +1,15 @@
+/*
+** journal.cpp
+**
+** This file is part of ModShot-mkxp-z, further modified for mkshot-z.
+**
+** ModShot-mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2024 hat_kid <https://github.com/thehatkid>
+*/
+
 #include "journal.h"
 #include "eventthread.h"
 #include "sharedstate.h"
@@ -17,10 +29,11 @@
 #include <pwd.h>
 #endif
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #if MKXPZ_PLATFORM == MKXPZ_PLATFORM_WINDOWS
-#include <SDL_syswm.h>
+// TODO: SDL_syswm.h has been removed from SDL3.
+// #include <SDL_syswm.h>
 
 static std::wstring utf8ToWide(const char *str)
 {

@@ -1,11 +1,19 @@
-//
-//  filesystemImpl.cpp
-//  Player
-//
-//  Created by ゾロアーク on 11/21/20.
-//
+/*
+** filesystemImpl.cpp
+** Player
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+**
+** Created by ゾロアーク on 11/21/20.
+*/
 
-#include <SDL_filesystem.h>
+#include <SDL3/SDL_filesystem.h>
 
 #include "filesystemImpl.h"
 #include "util/exception.h"

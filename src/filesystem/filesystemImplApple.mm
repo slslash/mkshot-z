@@ -1,13 +1,22 @@
-//
-//  filesystemImplApple.mm
-//  Player
-//
-//  Created by ゾロアーク on 11/21/20.
-//
+/*
+** filesystemImplApple.mm
+** Player
+**
+** This file is part of mkxp-z, further modified for mkshot-z.
+**
+** mkxp-z is licensed under GPLv2-or-later.
+** mkshot-z is licensed under GPLv3-or-later.
+**
+** Copyright (C) 2026 sevenleftslash <sevenleftslash@proton.me>
+** Copyright (C) 2013 - 2023 mkxp-z contributors <https://github.com/mkxp-z/mkxp-z/graphs/contributors>
+**
+** Created by ゾロアーク on 11/21/20.
+*/
 
 #import <AppKit/AppKit.h>
-#import <SDL_syswm.h>
-#import <SDL_filesystem.h>
+// TODO: SDL_syswm.h has been removed from SDL3.
+// #import <SDL_syswm.h>
+#import <SDL3/SDL_filesystem.h>
 
 #import "filesystemImpl.h"
 #import "util/exception.h"
