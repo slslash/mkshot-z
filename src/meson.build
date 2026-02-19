@@ -15,10 +15,10 @@ dep_pixman = dependency('pixman-1', static: is_static)
 
 dep_openal = dependency('openal', method: 'pkg-config', static: is_static)
 
-dep_sdl2 = dependency('SDL2', static: is_static)
-dep_sdl2_image = dependency('SDL2_image', static: is_static)
-dep_sdl2_ttf = dependency('SDL2_ttf', static: is_static)
-dep_sdl2_sound = dependency('SDL2_sound', static: is_static)
+dep_sdl2 = dependency('SDL3', static: is_static)
+dep_sdl2_image = dependency('SDL3_image', static: is_static)
+dep_sdl2_ttf = dependency('SDL3_ttf', static: is_static)
+dep_sdl2_sound = dependency('SDL3_sound', static: is_static)
 
 mkxp_dependencies += [
     dep_zlib, dep_physfs, dep_iconv, dep_uchardet,

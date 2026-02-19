@@ -174,7 +174,7 @@ clean-prefix:
 .PHONY: \
 	all download build init clean clean-download clean-prefix \
 	libogg libvorbis libtheora zlib physfs uchardet libiconv libpng libjpeg \
-	pixman harfbuzz freetype harfbuzz-ft sdl2 sdl2_image sdl2_ttf sdl2_sound \
+	pixman harfbuzz freetype harfbuzz-ft sdl3 sdl3_image sdl3_ttf sdl3_sound \
 	openal fluidsynth libyaml libffi openssl ruby ruby-ext-openssl
 
 
@@ -250,14 +250,14 @@ OPTS_SDL := \
 
 OPTS_SDL_IMAGE := \
 	-DBUILD_SHARED_LIBS=OFF \
-	-DSDL2IMAGE_DEPS_SHARED=OFF \
-	-DSDL2IMAGE_VENDORED=OFF \
-	-DSDL2IMAGE_SAMPLES=OFF
+	-DSDLIMAGE_DEPS_SHARED=OFF \
+	-DSDLIMAGE_VENDORED=OFF \
+	-DSDLIMAGE_SAMPLES=OFF
 
 OPTS_SDL_TTF := \
 	-DBUILD_SHARED_LIBS=OFF \
-	-DSDL2TTF_SAMPLES=OFF \
-	-DSDL2TTF_HARFBUZZ=ON
+	-DSDLTTF_SAMPLES=OFF \
+	-DSDLTTF_HARFBUZZ=ON
 
 OPTS_SDL_SOUND := \
 	-DSDLSOUND_BUILD_STATIC=ON \
@@ -577,84 +577,84 @@ $(DLDIR)/harfbuzz/$(BDIR)/.ft-interop:
 # ============================== SDL2 and modules ==============================
 
 # ------------------------------------ SDL2 ------------------------------------
-sdl2: init $(LIBDIR)/libSDL2.a
+sdl2: init $(LIBDIR)/libSDL3.a
 
-$(LIBDIR)/libSDL2.a: $(DLDIR)/sdl2/$(BDIR)/libSDL2.a
-	@printf "\e[94m=>\e[0m \e[36mInstalling SDL2...\e[0m\n"
+$(LIBDIR)/libSDL3.a: $(DLDIR)/sdl2/$(BDIR)/libSDL3.a
+	@printf "\e[94m=>\e[0m \e[36mInstalling SDL...\e[0m\n"
 	@cd $(DLDIR)/sdl2; $(CMAKE_INSTALL)
-	@touch $(LIBDIR)/libSDL2.a
+	@touch $(LIBDIR)/libSDL3.a
 
-$(DLDIR)/sdl2/$(BDIR)/libSDL2.a: $(DLDIR)/sdl2/$(BDIR)/Makefile
-	@printf "\e[94m=>\e[0m \e[36mBuilding SDL2...\e[0m\n"
+$(DLDIR)/sdl2/$(BDIR)/libSDL3.a: $(DLDIR)/sdl2/$(BDIR)/Makefile
+	@printf "\e[94m=>\e[0m \e[36mBuilding SDL...\e[0m\n"
 	@cd $(DLDIR)/sdl2; $(CMAKE_BUILD)
 
 $(DLDIR)/sdl2/$(BDIR)/Makefile: $(DLDIR)/sdl2/CMakeLists.txt
-	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL2...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL...\e[0m\n"
 	@cd $(DLDIR)/sdl2; $(CMAKE) $(OPTS_SDL)
 
 $(DLDIR)/sdl2/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2 2.32.10...\e[0m\n"
-	@$(GIT) -b release-2.32.10 https://github.com/libsdl-org/SDL $(DLDIR)/sdl2
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL 3.4.0...\e[0m\n"
+	@$(GIT) -b release-3.4.0 https://github.com/libsdl-org/SDL $(DLDIR)/sdl2
 
 # --------------------------------- SDL2_image ---------------------------------
-sdl2_image: init sdl2 libpng libjpeg $(LIBDIR)/libSDL2_image.a
+sdl2_image: init sdl2 libpng libjpeg $(LIBDIR)/libSDL3_image.a
 
-$(LIBDIR)/libSDL2_image.a: $(DLDIR)/sdl2_image/$(BDIR)/libSDL2_image.a
-	@printf "\e[94m=>\e[0m \e[36mInstalling SDL2_image...\e[0m\n"
+$(LIBDIR)/libSDL3_image.a: $(DLDIR)/sdl2_image/$(BDIR)/libSDL3_image.a
+	@printf "\e[94m=>\e[0m \e[36mInstalling SDL_image...\e[0m\n"
 	@cd $(DLDIR)/sdl2_image; $(CMAKE_INSTALL)
-	@touch $(LIBDIR)/libSDL2_image.a
+	@touch $(LIBDIR)/libSDL3_image.a
 
-$(DLDIR)/sdl2_image/$(BDIR)/libSDL2_image.a: $(DLDIR)/sdl2_image/$(BDIR)/Makefile
-	@printf "\e[94m=>\e[0m \e[36mBuilding SDL2_image...\e[0m\n"
+$(DLDIR)/sdl2_image/$(BDIR)/libSDL3_image.a: $(DLDIR)/sdl2_image/$(BDIR)/Makefile
+	@printf "\e[94m=>\e[0m \e[36mBuilding SDL_image...\e[0m\n"
 	@cd $(DLDIR)/sdl2_image; $(CMAKE_BUILD)
 
 $(DLDIR)/sdl2_image/$(BDIR)/Makefile: $(DLDIR)/sdl2_image/CMakeLists.txt
-	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL2_image...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL_image...\e[0m\n"
 	@cd $(DLDIR)/sdl2_image; $(CMAKE) $(OPTS_SDL_IMAGE)
 
 $(DLDIR)/sdl2_image/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_image 2.8.8...\e[0m\n"
-	@$(GIT) -b release-2.8.8 https://github.com/libsdl-org/SDL_image $(DLDIR)/sdl2_image
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL_image 3.4.0...\e[0m\n"
+	@$(GIT) -b release-3.4.0 https://github.com/libsdl-org/SDL_image $(DLDIR)/sdl2_image
 
 # ---------------------------------- SDL2_ttf ----------------------------------
-sdl2_ttf: init sdl2 freetype harfbuzz $(LIBDIR)/libSDL2_ttf.a
+sdl2_ttf: init sdl2 freetype harfbuzz $(LIBDIR)/libSDL3_ttf.a
 
-$(LIBDIR)/libSDL2_ttf.a: $(DLDIR)/sdl2_ttf/$(BDIR)/libSDL2_ttf.a
-	@printf "\e[94m=>\e[0m \e[36mInstalling SDL2_ttf...\e[0m\n"
+$(LIBDIR)/libSDL3_ttf.a: $(DLDIR)/sdl2_ttf/$(BDIR)/libSDL3_ttf.a
+	@printf "\e[94m=>\e[0m \e[36mInstalling SDL_ttf...\e[0m\n"
 	@cd $(DLDIR)/sdl2_ttf; $(CMAKE_INSTALL)
-	@touch $(LIBDIR)/libSDL2_ttf.a
+	@touch $(LIBDIR)/libSDL3_ttf.a
 
-$(DLDIR)/sdl2_ttf/$(BDIR)/libSDL2_ttf.a: $(DLDIR)/sdl2_ttf/$(BDIR)/Makefile
-	@printf "\e[94m=>\e[0m \e[36mBuilding SDL2_ttf...\e[0m\n"
+$(DLDIR)/sdl2_ttf/$(BDIR)/libSDL3_ttf.a: $(DLDIR)/sdl2_ttf/$(BDIR)/Makefile
+	@printf "\e[94m=>\e[0m \e[36mBuilding SDL_ttf...\e[0m\n"
 	@cd $(DLDIR)/sdl2_ttf; $(CMAKE_BUILD)
 
 $(DLDIR)/sdl2_ttf/$(BDIR)/Makefile: $(DLDIR)/sdl2_ttf/CMakeLists.txt
-	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL2_ttf...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL_ttf...\e[0m\n"
 	@cd $(DLDIR)/sdl2_ttf; $(CMAKE) $(OPTS_SDL_TTF)
 
 $(DLDIR)/sdl2_ttf/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_ttf 2.22.0...\e[0m\n"
-	@$(GIT) -b release-2.22.0 https://github.com/libsdl-org/SDL_ttf $(DLDIR)/sdl2_ttf
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL_ttf 3.2.2...\e[0m\n"
+	@$(GIT) -b release-3.2.2 https://github.com/libsdl-org/SDL_ttf $(DLDIR)/sdl2_ttf
 
 # --------------------------------- SDL2_sound ---------------------------------
-sdl2_sound: init sdl2 libogg libvorbis $(LIBDIR)/libSDL2_sound.a
+sdl2_sound: init sdl2 libogg libvorbis $(LIBDIR)/libSDL3_sound.a
 
-$(LIBDIR)/libSDL2_sound.a: $(DLDIR)/sdl2_sound/$(BDIR)/libSDL2_sound.a
-	@printf "\e[94m=>\e[0m \e[36mInstalling SDL2_sound...\e[0m\n"
+$(LIBDIR)/libSDL3_sound.a: $(DLDIR)/sdl2_sound/$(BDIR)/libSDL3_sound.a
+	@printf "\e[94m=>\e[0m \e[36mInstalling SDL_sound...\e[0m\n"
 	@cd $(DLDIR)/sdl2_sound; $(CMAKE_INSTALL)
-	@touch $(LIBDIR)/libSDL2_sound.a
+	@touch $(LIBDIR)/libSDL3_sound.a
 
-$(DLDIR)/sdl2_sound/$(BDIR)/libSDL2_sound.a: $(DLDIR)/sdl2_sound/$(BDIR)/Makefile
-	@printf "\e[94m=>\e[0m \e[36mBuilding SDL2_sound...\e[0m\n"
+$(DLDIR)/sdl2_sound/$(BDIR)/libSDL3_sound.a: $(DLDIR)/sdl2_sound/$(BDIR)/Makefile
+	@printf "\e[94m=>\e[0m \e[36mBuilding SDL_sound...\e[0m\n"
 	@cd $(DLDIR)/sdl2_sound; $(CMAKE_BUILD)
 
 $(DLDIR)/sdl2_sound/$(BDIR)/Makefile: $(DLDIR)/sdl2_sound/CMakeLists.txt
-	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL2_sound...\e[0m\n"
+	@printf "\e[94m=>\e[0m \e[36mConfiguring SDL_sound...\e[0m\n"
 	@cd $(DLDIR)/sdl2_sound; $(CMAKE) $(OPTS_SDL_SOUND)
 
 $(DLDIR)/sdl2_sound/CMakeLists.txt:
-	@printf "\e[94m=>\e[0m \e[36mDownloading SDL2_sound...\e[0m\n"
-	@$(GIT) -b stable-2.0 https://github.com/icculus/SDL_sound $(DLDIR)/sdl2_sound
+	@printf "\e[94m=>\e[0m \e[36mDownloading SDL_sound...\e[0m\n"
+	@$(GIT) https://github.com/icculus/SDL_sound $(DLDIR)/sdl2_sound
 
 
 # =============================== Audio backends ===============================
